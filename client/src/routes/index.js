@@ -1,5 +1,4 @@
 import React from "react";
-
 import async from "../components/Async";
 
 import {
@@ -69,7 +68,9 @@ const Pricing = async(() => import("../pages/pages/Pricing"));
 const Profile = async(() => import("../pages/pages/Profile"));
 const Settings = async(() => import("../pages/pages/Settings"));
 const Tasks = async(() => import("../pages/pages/Tasks"));
-const Projects = async(() => import("../pages/pages/Projects"));
+const ProjectPage = async(() => import("../pages/ProjectPage"));
+const DivisionPage = async (() => import("../pages/DivisionPage"));
+const FormPage = async (() => import("../pages/FormPage"));
 const Calendar = async(() => import("../pages/pages/Calendar"));
 
 // Tables components
@@ -92,28 +93,7 @@ const Theming = async(() => import("../pages/docs/Theming"));
 const StateManagement = async(() => import("../pages/docs/StateManagement"));
 const Support = async(() => import("../pages/docs/Support"));
 const Changelog = async(() => import("../pages/docs/Changelog"));
-const Presentation = async(() => import("../pages/docs/Presentation"));
-
-const dashboardsRoutes = {
-  id: "Dashboard",
-  path: "/dashboard",
-  header: "Pages",
-  icon: <Sliders />,
-  containsHome: true,
-  children: [
-    {
-      path: "/dashboard/default",
-      name: "Default",
-      component: Default
-    },
-    {
-      path: "/dashboard/analytics",
-      name: "Analytics",
-      component: Analytics
-    }
-  ],
-  component: null
-};
+// const Presentation = async(() => import("../pages/docs/Presentation"));
 
 const pagesRoutes = {
   id: "Pages",
@@ -149,12 +129,31 @@ const profileRoutes = {
 
 const projectsRoutes = {
   id: "Projects",
-  path: "/projects",
+  path: "/admin/projects",
   icon: <Briefcase />,
   badge: "8",
-  component: Projects,
-  children: null
+  component: ProjectPage,
+  children: null,
+  isShown: true
 };
+
+const divisonRoutes = {
+  id: "Divisions",
+  path: "/admin/projects/:projectId/divisions",
+  icon: <Briefcase />,
+  component: DivisionPage,
+  children: null,
+  isShown: false
+}
+
+const formRoutes = {
+  id: "Form",
+  path: "/admin/divisions/:divisionsId/forms",
+  icon: <Briefcase />,
+  component: FormPage,
+  children: null,
+  isShown: false
+}
 
 const invoiceRoutes = {
   id: "Invoices",
@@ -172,7 +171,8 @@ const invoiceRoutes = {
       component: InvoiceDetails
     }
   ],
-  component: null
+  component: null,
+  isShown: false
 };
 
 const orderRoutes = {
@@ -180,7 +180,8 @@ const orderRoutes = {
   path: "/orders",
   icon: <ShoppingCart />,
   component: Orders,
-  children: null
+  children: null,
+  isShown: false
 };
 
 const tasksRoutes = {
@@ -189,7 +190,8 @@ const tasksRoutes = {
   icon: <CheckSquare />,
   badge: "17",
   component: Tasks,
-  children: null
+  children: null,
+  isShown: false
 };
 
 const calendarRoutes = {
@@ -231,7 +233,8 @@ const authRoutes = {
       component: Page500
     }
   ],
-  component: null
+  component: null,
+  isShown: true
 };
 
 const componentsRoutes = {
@@ -314,7 +317,7 @@ const componentsRoutes = {
   component: null
 };
 
-const formsRoutes = {
+const formsRoutes_bk = {
   id: "Forms",
   path: "/forms",
   icon: <CheckSquare />,
@@ -369,7 +372,8 @@ const tablesRoutes = {
       component: AdvancedTable
     }
   ],
-  component: null
+  component: null,
+  isShown: true
 };
 
 const iconsRoutes = {
@@ -418,14 +422,14 @@ const mapsRoutes = {
   component: null
 };
 
-const presentationRoutes = {
-  id: "Presentation",
-  path: "/",
-  header: "Docs",
-  icon: <Monitor />,
-  component: Presentation,
-  children: null
-};
+// const presentationRoutes = {
+//   id: "Presentation",
+//   path: "/",
+//   header: "Docs",
+//   icon: <Monitor />,
+//   component: Presentation,
+//   children: null
+// };
 
 const documentationRoutes = {
   id: "Documentation",
@@ -490,23 +494,23 @@ const privateRoutes = {
 
 // Routes using the Dashboard layout
 export const dashboardLayoutRoutes = [
-  dashboardsRoutes,
+  projectsRoutes,
+  divisonRoutes,
+  formRoutes,
   pagesRoutes,
   profileRoutes,
-  projectsRoutes,
   orderRoutes,
   invoiceRoutes,
   tasksRoutes,
   calendarRoutes,
   componentsRoutes,
   chartRoutes,
-  formsRoutes,
   tablesRoutes,
   iconsRoutes,
   mapsRoutes,
   documentationRoutes,
   changelogRoutes,
-  presentationRoutes,
+  // presentationRoutes,
   privateRoutes
 ];
 
@@ -515,10 +519,11 @@ export const authLayoutRoutes = [authRoutes];
 
 // Routes visible in the sidebar
 export const sidebarRoutes = [
-  dashboardsRoutes,
+  projectsRoutes,
+  divisonRoutes,
+  formRoutes,
   pagesRoutes,
   profileRoutes,
-  projectsRoutes,
   orderRoutes,
   invoiceRoutes,
   tasksRoutes,
@@ -526,11 +531,10 @@ export const sidebarRoutes = [
   authRoutes,
   componentsRoutes,
   chartRoutes,
-  formsRoutes,
   tablesRoutes,
   iconsRoutes,
   mapsRoutes,
-  presentationRoutes,
+  // presentationRoutes,
   documentationRoutes,
   changelogRoutes
 ];
