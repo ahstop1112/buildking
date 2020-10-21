@@ -9,7 +9,7 @@ const app = express();
 // (we'll be using this later to serve our JSON files
 const fs = require('fs');
 
-app.use(express.static(path.join(__dirname, 'buildking')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 // configure our express instance with some body-parser settings
 // including handling JSON data
 app.use(bodyParser.json());

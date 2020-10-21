@@ -1,4 +1,5 @@
 import React from "react";
+
 import async from "../components/Async";
 
 import {
@@ -68,9 +69,7 @@ const Pricing = async(() => import("../pages/pages/Pricing"));
 const Profile = async(() => import("../pages/pages/Profile"));
 const Settings = async(() => import("../pages/pages/Settings"));
 const Tasks = async(() => import("../pages/pages/Tasks"));
-const ProjectPage = async(() => import("../pages/ProjectPage"));
-const DivisionPage = async (() => import("../pages/DivisionPage"));
-const FormPage = async (() => import("../pages/FormPage"));
+const Projects = async(() => import("../pages/pages/Projects"));
 const Calendar = async(() => import("../pages/pages/Calendar"));
 
 // Tables components
@@ -94,6 +93,27 @@ const StateManagement = async(() => import("../pages/docs/StateManagement"));
 const Support = async(() => import("../pages/docs/Support"));
 const Changelog = async(() => import("../pages/docs/Changelog"));
 const Presentation = async(() => import("../pages/docs/Presentation"));
+
+const dashboardsRoutes = {
+  id: "Dashboard",
+  path: "/dashboard",
+  header: "Pages",
+  icon: <Sliders />,
+  containsHome: true,
+  children: [
+    {
+      path: "/dashboard/default",
+      name: "Default",
+      component: Default
+    },
+    {
+      path: "/dashboard/analytics",
+      name: "Analytics",
+      component: Analytics
+    }
+  ],
+  component: null
+};
 
 const pagesRoutes = {
   id: "Pages",
@@ -129,31 +149,12 @@ const profileRoutes = {
 
 const projectsRoutes = {
   id: "Projects",
-  path: "/admin/projects",
+  path: "/projects",
   icon: <Briefcase />,
   badge: "8",
-  component: ProjectPage,
-  children: null,
-  isShown: true
+  component: Projects,
+  children: null
 };
-
-const divisonRoutes = {
-  id: "Divisions",
-  path: "/admin/projects/:projectId/divisions",
-  icon: <Briefcase />,
-  component: DivisionPage,
-  children: null,
-  isShown: false
-}
-
-const formRoutes = {
-  id: "Form",
-  path: "/admin/divisions/:divisionsId/forms",
-  icon: <Briefcase />,
-  component: FormPage,
-  children: null,
-  isShown: false
-}
 
 const invoiceRoutes = {
   id: "Invoices",
@@ -171,8 +172,7 @@ const invoiceRoutes = {
       component: InvoiceDetails
     }
   ],
-  component: null,
-  isShown: false
+  component: null
 };
 
 const orderRoutes = {
@@ -180,8 +180,7 @@ const orderRoutes = {
   path: "/orders",
   icon: <ShoppingCart />,
   component: Orders,
-  children: null,
-  isShown: false
+  children: null
 };
 
 const tasksRoutes = {
@@ -190,8 +189,7 @@ const tasksRoutes = {
   icon: <CheckSquare />,
   badge: "17",
   component: Tasks,
-  children: null,
-  isShown: false
+  children: null
 };
 
 const calendarRoutes = {
@@ -233,8 +231,7 @@ const authRoutes = {
       component: Page500
     }
   ],
-  component: null,
-  isShown: true
+  component: null
 };
 
 const componentsRoutes = {
@@ -317,7 +314,7 @@ const componentsRoutes = {
   component: null
 };
 
-const formsRoutes_bk = {
+const formsRoutes = {
   id: "Forms",
   path: "/forms",
   icon: <CheckSquare />,
@@ -372,8 +369,7 @@ const tablesRoutes = {
       component: AdvancedTable
     }
   ],
-  component: null,
-  isShown: true
+  component: null
 };
 
 const iconsRoutes = {
@@ -494,17 +490,17 @@ const privateRoutes = {
 
 // Routes using the Dashboard layout
 export const dashboardLayoutRoutes = [
-  projectsRoutes,
-  divisonRoutes,
-  formRoutes,
+  dashboardsRoutes,
   pagesRoutes,
   profileRoutes,
+  projectsRoutes,
   orderRoutes,
   invoiceRoutes,
   tasksRoutes,
   calendarRoutes,
   componentsRoutes,
   chartRoutes,
+  formsRoutes,
   tablesRoutes,
   iconsRoutes,
   mapsRoutes,
@@ -519,11 +515,10 @@ export const authLayoutRoutes = [authRoutes];
 
 // Routes visible in the sidebar
 export const sidebarRoutes = [
-  projectsRoutes,
-  divisonRoutes,
-  formRoutes,
+  dashboardsRoutes,
   pagesRoutes,
   profileRoutes,
+  projectsRoutes,
   orderRoutes,
   invoiceRoutes,
   tasksRoutes,
@@ -531,6 +526,7 @@ export const sidebarRoutes = [
   authRoutes,
   componentsRoutes,
   chartRoutes,
+  formsRoutes,
   tablesRoutes,
   iconsRoutes,
   mapsRoutes,

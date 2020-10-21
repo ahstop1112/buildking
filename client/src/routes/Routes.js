@@ -5,7 +5,6 @@ import { dashboardLayoutRoutes, authLayoutRoutes } from "./index";
 import DashboardLayout from "../layouts/Dashboard";
 import AuthLayout from "../layouts/Auth";
 import Page404 from "../pages/auth/Page404";
-import ProjectPage from "../pages/ProjectPage";
 
 const childRoutes = (Layout, routes) =>
   routes.map(({ children, path, component: Component }, index) =>
@@ -43,19 +42,6 @@ const Routes = () => (
     <Switch>
       {childRoutes(DashboardLayout, dashboardLayoutRoutes)}
       {childRoutes(AuthLayout, authLayoutRoutes)}
-      
-      <Route
-        path='/admin/division/:divisionId/forms'
-        render={() => (
-          <ProjectPage />
-        )}
-      />
-      <Route
-        path='/admin/form/:formId'
-        render={() => (
-          <ProjectPage />
-        )}
-      />
       <Route
         render={() => (
           <AuthLayout>
