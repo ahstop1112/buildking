@@ -1,0 +1,24 @@
+{
+  "name": "prada-totem-game",
+  "version": "1.0.0",
+  "description": "Prada Totem Game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client-install": "npm install --prefix client",
+    "client": "PORT=80 npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Perry Cheung",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.3.1",
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7",
+    "validator": "^10.8.0"
+  }
+}
