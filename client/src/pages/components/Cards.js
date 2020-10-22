@@ -65,7 +65,7 @@ function MediaCard() {
     <Card mb={6}>
       <CardActionArea>
         <CardMedia
-          image="/static/img/unsplash/unsplash-1.jpg"
+          image="static/img/unsplash/unsplash-1.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>

@@ -21,10 +21,10 @@ const PageContainer = () => {
           Divisions
       </Typography>
       <Breadcrumbs aria-label="Breadcrumb" mt={2}>
-          <Link component={NavLink} exact to="/admin/projects">
+          <Link component={NavLink} exact to="/web/admin/projects">
               Admin
           </Link>
-          <Link component={NavLink} exact to="/admin/projects">
+          <Link component={NavLink} exact to="/web/admin/projects">
               Projects
           </Link>
           <Typography>{divisionState.divisions[0].project_name}</Typography>
@@ -36,7 +36,7 @@ const PageContainer = () => {
         </Grid>
         <AddButtonContainer container item lg={6} md={6} spacing={2} justify="flex-end">
           <Button
-            href={`/add/division`}
+            href={`web/admin/add/division`}
             variant="contained"
             color="primary"
             size="large"

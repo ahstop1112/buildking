@@ -46,7 +46,7 @@ const DataTable = () => {
                   <TableCell>{row.description}</TableCell>
                   <TableCell>
                     <Button
-                      href={`/admin/divisions/${row.id}/forms`}
+                      href={`/web/admin/divisions/${row.id}/forms`}
                       variant="contained"
                       color="primary"
                       size="medium"
@@ -57,7 +57,7 @@ const DataTable = () => {
                   </TableCell>
                   <TableCell>
                     <Button
-                      href={`/admin/division/edit/${row.id}`}
+                      href={`/web/admin/division/edit/${row.id}`}
                       variant="contained"
                       color="secondary"
                       size="medium"
@@ -68,7 +68,7 @@ const DataTable = () => {
                   </TableCell>
                   <TableCell>
                     <Button
-                      href={`/admin/division/remove/${row.id}`}
+                      href={`/web/admin/division/remove/${row.id}`}
                       variant="contained"
                       color="secondary"
                       size="medium"

@@ -129,7 +129,7 @@ const profileRoutes = {
 
 const projectsRoutes = {
   id: "Projects",
-  path: "/admin/projects",
+  path: "/web/admin/projects",
   icon: <Briefcase />,
   badge: "8",
   component: ProjectPage,
@@ -139,7 +139,7 @@ const projectsRoutes = {
 
 const divisonRoutes = {
   id: "Divisions",
-  path: "/admin/projects/:projectId/divisions",
+  path: "/web/admin/projects/:projectId/divisions",
   icon: <Briefcase />,
   component: DivisionPage,
   children: null,
@@ -148,7 +148,7 @@ const divisonRoutes = {
 
 const formRoutes = {
   id: "Form",
-  path: "/admin/divisions/:divisionsId/forms",
+  path: "/web/admin/divisions/:divisionsId/forms",
   icon: <Briefcase />,
   component: FormPage,
   children: null,

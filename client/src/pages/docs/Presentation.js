@@ -158,21 +158,21 @@ function Introduction() {
                 <Tooltip title="Material-UI">
                   <BrandIcon
                     alt="Material-UI"
-                    src="/static/img/brands/material-ui.svg"
+                    src="static/img/brands/material-ui.svg"
                     style={{ width: "44px" }}
                   />
                 </Tooltip>
                 <Tooltip title="Webpack">
                   <BrandIcon
                     alt="Webpack"
-                    src="/static/img/brands/webpack.svg"
+                    src="static/img/brands/webpack.svg"
                     style={{ width: "48px" }}
                   />
                 </Tooltip>
                 <Tooltip title="Npm / Yarn">
                   <BrandIcon
                     alt="Npm"
-                    src="/static/img/brands/npm.svg"
+                    src="static/img/brands/npm.svg"
                     style={{ width: "48px" }}
                   />
                 </Tooltip>
@@ -186,14 +186,14 @@ function Introduction() {
                 <Tooltip title="React">
                   <BrandIcon
                     alt="React"
-                    src="/static/img/brands/react.svg"
+                    src="static/img/brands/react.svg"
                     style={{ width: "50px" }}
                   />
                 </Tooltip>
                 <Tooltip title="Redux">
                   <BrandIcon
                     alt="Redux"
-                    src="/static/img/brands/redux.svg"
+                    src="static/img/brands/redux.svg"
                     style={{ width: "38px" }}
                   />
                 </Tooltip>

@@ -38,7 +38,7 @@ function SignIn() {
   return (
     <Wrapper>
       <Helmet title="Sign In" />
-      <BigAvatar alt="Lucy" src="/static/img/avatars/avatar-1.jpg" />
+      <BigAvatar alt="Lucy" src="static/img/avatars/avatar-1.jpg" />
 
       <Typography component="h1" variant="h4" align="center" gutterBottom>
         Welcome back, Lucy!

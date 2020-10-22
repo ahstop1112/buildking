@@ -63,7 +63,7 @@ let Demos = function({dispatch}) {
     <Wrapper>
       <Heading>Select a demo</Heading>
       <Demo my={2} mx={4} onClick={() => dispatch(setTheme(0))}>
-        <Screenshot alt="Dark" src="/static/img/screenshots/dark-small.png" />
+        <Screenshot alt="Dark" src="static/img/screenshots/dark-small.png" />
         <Typography variant="subtitle1" gutterBottom>
           Dark
         </Typography>
@@ -71,14 +71,14 @@ let Demos = function({dispatch}) {
       <Demo my={2} mx={4} onClick={() => dispatch(setTheme(1))}>
         <Screenshot
           alt="Light"
-          src="/static/img/screenshots/light-small.png"
+          src="static/img/screenshots/light-small.png"
         />
         <Typography variant="subtitle1" gutterBottom>
           Light
         </Typography>
       </Demo>
       <Demo my={2} mx={4} onClick={() => dispatch(setTheme(2))}>
-        <Screenshot alt="Blue" src="/static/img/screenshots/blue-small.png" />
+        <Screenshot alt="Blue" src="static/img/screenshots/blue-small.png" />
         <Typography variant="subtitle1" gutterBottom>
           Blue
         </Typography>
@@ -86,7 +86,7 @@ let Demos = function({dispatch}) {
       <Demo my={2} mx={4} onClick={() => dispatch(setTheme(3))}>
         <Screenshot
           alt="Green"
-          src="/static/img/screenshots/green-small.png"
+          src="static/img/screenshots/green-small.png"
         />
         <Typography variant="subtitle1" gutterBottom>
           Green
@@ -95,14 +95,14 @@ let Demos = function({dispatch}) {
       <Demo my={2} mx={4} onClick={() => dispatch(setTheme(4))}>
         <Screenshot
           alt="Indigo"
-          src="/static/img/screenshots/indigo-small.png"
+          src="static/img/screenshots/indigo-small.png"
         />
         <Typography variant="subtitle1" gutterBottom>
           Indigo
         </Typography>
       </Demo>
       <Demo my={2} mx={4} onClick={() => dispatch(setTheme(5))}>
-        <Screenshot alt="Teal" src="/static/img/screenshots/teal-small.png" />
+        <Screenshot alt="Teal" src="static/img/screenshots/teal-small.png" />
         <Typography variant="subtitle1" gutterBottom>
           Teal
         </Typography>

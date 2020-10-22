@@ -78,7 +78,7 @@ function Public() {
             <CenteredContent>
               <BigAvatar
                 alt="Remy Sharp"
-                src="/static/img/avatars/avatar-1.jpg"
+                src="static/img/avatars/avatar-1.jpg"
               />
               <input
                 accept="image/*"

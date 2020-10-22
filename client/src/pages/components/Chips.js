@@ -64,7 +64,7 @@ const DefaultChips = () => {
             m={1}
           />
           <Chip
-            avatar={<Avatar alt="Natacha" src="/static/img/avatars/avatar-1.jpg" />}
+            avatar={<Avatar alt="Natacha" src="static/img/avatars/avatar-1.jpg" />}
             label="Deletable Chip"
             onDelete={handleDelete}
             m={1}
@@ -177,7 +177,7 @@ const OutlinedChips = () => {
             variant="outlined"
           />
           <Chip
-            avatar={<Avatar alt="Natacha" src="/static/img/avatars/avatar-1.jpg" />}
+            avatar={<Avatar alt="Natacha" src="static/img/avatars/avatar-1.jpg" />}
             label="Deletable Chip"
             onDelete={handleDelete}
             m={1}
