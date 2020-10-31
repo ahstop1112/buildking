@@ -27,16 +27,16 @@ const Container = props => {
     <>
       <GridContainer className={classes.section} item container xs={12} sm={12} md={12} lg={12}>
         <Breadcrumbs aria-label="breadcrumb" className={classes.breadcrumbs}>
-          <Link color="inherit" href="/admin/projects">
+          <Link color="inherit" href="/projects">
             Admin
           </Link>
-          <Link color="inherit" href="/admin/projects">
+          <Link color="inherit" href="/projects">
             Projects
           </Link>
-          <Link color="inherit" href={`/admin/project/${FormDetailState.division[0].project_id}/divisions`}>
+          <Link color="inherit" href={`/project/${FormDetailState.division[0].project_id}/divisions`}>
             {FormDetailState.division[0].project_name}
           </Link>
-          <Link color="inherit" href={`/admin/division/${FormDetailState.division[0].id}/forms`}>
+          <Link color="inherit" href={`/division/${FormDetailState.division[0].id}/forms`}>
             {FormDetailState.division[0].title}
           </Link>
           <Typography color="textPrimary" className={classes.breadcrumbCurrent}>

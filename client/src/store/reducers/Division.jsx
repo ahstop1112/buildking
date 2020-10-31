@@ -1,65 +1,50 @@
-import { verifyEmail } from '../../utility/';
-
-const DivisionReducer = (state, action) => {
-    const { type } = action;
-    let currentField = [];
-    let currentValue = '';
+const DivisionsReducer = (state, action) => {
     let userInfo = [];
 
     switch (action.type){
-        case 'SET_USER_STATE':
+        case 'INITIAL_DIVISIONS':
+
+            // console.log(action.project_data);
             
             return{
                 ...state,
-                authStr:  `Bearer ${action.token}`,
-                idToken: action.token,
+                divisions: action.divisions_data,
             }
-        case 'CHECK_STATE': 
-            console.log(state);
-            return{
-                ...state
-            }
-        case 'SET_LOGIN_BY_EMAIL':
-            return{
-                ...state,
-                login_method: 'basic',
-                email: action.email
-            }    
-        case 'INITIAL_CSRF_TOKEN':
+        case 'INITIAL_UPDATE_DIVISION':
 
-            // console.log(action.csrfToken);
-            return{
-                ...state,
-                csrfToken: action.csrfToken
-            }
-        case 'LOGIN_FIELD_CHECK':
-            currentField = state.loginFields[action.fieldName];
-            currentField['value'] = action.value;
-            let isValid = false;
-
-            // 
-            switch (currentField['validation']){
-                case 'email':
-                    isValid = verifyEmail(currentField['value']);
-                    currentField['isValid'] = isValid;
-                break;
-                case 'password':
-                    isValid = currentField['value'].length > 5;
-                    currentField['isValid'] = isValid;
-                break;
-                default:
-                    currentField['isValid'] = isValid;
-            }
-
-            console.log(currentField);
-
-            return{
-                ...state,
-                loginFields: {
-                    ...state.loginFields,
-                    [action.fieldName]: currentField
+                // console.log(action.update_project[0]['description']);
+                
+                return{
+                    ...state,
+                    updateDivision: {
+                        id:  action.division_data[0]['id'],
+                        name: action.division_data[0]['name'],
+                        description: action.division_data[0]['description'],
+                        title: action.division_data[0]['title']
+                    }
                 }
-            }
+        case 'CHANGE_NEW_TEXTFIELD':
+                return{
+                    ...state,
+                    updateDivision: {
+                        ...state.updateProject,
+                        [action.fieldName]: action.fieldValue,
+                    }
+                };
+        case 'CHANGE_UPDATE_TEXTFIELD':
+                return{
+                    ...state,
+                    updateDivision: {
+                        ...state.updateDivision,
+                        [action.fieldName]: action.fieldValue,
+                    }
+                };
+        case 'INITIAL_PROJECT_NAME':
+                console.log(action.projectName);
+                return{
+                    ...state,
+                    projectName: action.projectName
+                };
         case 'SUCCESS_LOGIN': 
             
             if (process.env.REACT_APP_CUSTOM_NODE_ENV === 'development' ||
@@ -108,4 +93,4 @@ const DivisionReducer = (state, action) => {
     }
 }
 
-export default DivisionReducer;
+export default DivisionsReducer;

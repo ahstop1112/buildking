@@ -1,9 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import { spacing } from "@material-ui/system";
 
 import {
-  Avatar,
   Grid,
   Breadcrumbs as MuiBreadcrumbs,
   Card as MuiCard,
@@ -16,7 +14,6 @@ import {
   Button as MuiButton,
   Tabs as MuiTabs,
   Tab as MuiTab,
-  TabPanel as MuiTabPanel
 } from "@material-ui/core";
 import { AvatarGroup as MuiAvatarGroup } from '@material-ui/lab';
 export const Button = styled(MuiButton)(spacing);

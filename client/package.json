@@ -1,11 +1,12 @@
 {
-  "name": "material-app",
+  "name": "cerebro-inspection-cms",
   "version": "1.2.0",
-  "description": "Material App Pro - React Admin & Dashboard Template",
-  "author": "Paul Laros <support@bootlab.io>",
+  "description": "Cerebro Inspection CMS",
+  "homepage": "https://cmsdemo.ddnsking.com/web/admin/",
+  "author": "",
   "private": true,
   "scripts": {
-    "start": "PORT=80 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build"
   },
   "eslintConfig": {
@@ -31,6 +32,7 @@
     "@material-ui/pickers": "3.2.10",
     "@material-ui/styles": "4.10.0",
     "@material-ui/system": "4.9.14",
+    "axios": "^0.21.0",
     "chart.js": "2.9.3",
     "css-vendor": "2.0.8",
     "date-fns": "2.15.0",

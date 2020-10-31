@@ -36,7 +36,6 @@ const SidebarCategory = ({
             <CategoryIconLess />
           )
         ) : null}
-        {badge ? <CategoryBadge label={badge} /> : ""}
       </Category> : null}
     </React.Fragment>
   );
@@ -88,18 +87,18 @@ const Sidebar = ({ classes, staticContext, location, ...rest }) => {
     setOpenRoutes(openRoutes => Object.assign({}, openRoutes, {[index]: !openRoutes[index]}));
   }
 
-  console.log(routes);
+  // console.log(routes);
 
   return (
     <Drawer variant="permanent" {...rest}>
       <Brand>
-        <Logo src="static/img/logo.png" />
+        <Logo src="/web/admin/static/img/logo.png" />
       </Brand>
       <Scrollbar>
       <SidebarUser>
         <Grid container spacing={2}>
           <Grid container item lg={12} justify="center" alignItems="center" >
-            <Avatar alt="Lucy Lavender" src="static/img/avatars/avatar-1.jpg" />
+            <Avatar alt="Lucy Lavender" src="/web/admin/static/img/avatars/avatar-1.jpg" />
           </Grid>
           <Grid item lg={12}>
             <AvatarText variant="body2">

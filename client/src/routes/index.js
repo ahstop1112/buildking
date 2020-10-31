@@ -2,131 +2,26 @@ import React from "react";
 import async from "../components/Async";
 
 import {
-  BookOpen,
   Briefcase,
-  Calendar as CalendarIcon,
-  CheckSquare,
-  CreditCard,
-  Grid,
-  Heart,
-  Layout,
-  List,
-  Map,
-  Monitor,
-  ShoppingCart,
-  PieChart,
-  Sliders,
   User,
-  Users
 } from "react-feather";
 
 // Auth components
-const SignIn = async(() => import("../pages/auth/SignIn"));
-const SignUp = async(() => import("../pages/auth/SignUp"));
-const ResetPassword = async(() => import("../pages/auth/ResetPassword"));
-const Page404 = async(() => import("../pages/auth/Page404"));
-const Page500 = async(() => import("../pages/auth/Page500"));
-
-// Components components
-const Alerts = async(() => import("../pages/components/Alerts"));
-const Avatars = async(() => import("../pages/components/Avatars"));
-const Badges = async(() => import("../pages/components/Badges"));
-const Buttons = async(() => import("../pages/components/Buttons"));
-const Cards = async(() => import("../pages/components/Cards"));
-const Chips = async(() => import("../pages/components/Chips"));
-const Dialogs = async(() => import("../pages/components/Dialogs"));
-const ExpPanels = async(() => import("../pages/components/ExpansionPanels"));
-const Lists = async(() => import("../pages/components/Lists"));
-const Menus = async(() => import("../pages/components/Menus"));
-const Pagination = async(() => import("../pages/components/Pagination"));
-const Progress = async(() => import("../pages/components/Progress"));
-const Snackbars = async(() => import("../pages/components/Snackbars"));
-const Tooltips = async(() => import("../pages/components/Tooltips"));
-
-// Dashboards components
-const Default = async(() => import("../pages/dashboards/Default"));
-const Analytics = async(() => import("../pages/dashboards/Analytics"));
-
-// Forms components
-const Pickers = async(() => import("../pages/forms/Pickers"));
-const SelectionCtrls = async(() => import("../pages/forms/SelectionControls"));
-const Selects = async(() => import("../pages/forms/Selects"));
-const TextFields = async(() => import("../pages/forms/TextFields"));
-const Dropzone = async(() => import("../pages/forms/Dropzone"));
-const Editors = async(() => import("../pages/forms/Editors"));
-
-// Icons components
-const MaterialIcons = async(() => import("../pages/icons/MaterialIcons"));
-const FeatherIcons = async(() => import("../pages/icons/FeatherIcons"));
+const SignIn = async(() => import("../pages/SignIn"));
+const ResetPassword = async(() => import("../pages/ResetPasswordPage"));
+const Page404 = async(() => import("../pages/Page404"));
+const Page500 = async(() => import("../pages/Page500"));
 
 // Pages components
-const Blank = async(() => import("../pages/pages/Blank"));
-const InvoiceDetails = async(() => import("../pages/pages/InvoiceDetails"));
-const InvoiceList = async(() => import("../pages/pages/InvoiceList"));
-const Orders = async(() => import("../pages/pages/Orders"));
-const Pricing = async(() => import("../pages/pages/Pricing"));
-const Profile = async(() => import("../pages/pages/Profile"));
-const Settings = async(() => import("../pages/pages/Settings"));
-const Tasks = async(() => import("../pages/pages/Tasks"));
 const ProjectPage = async(() => import("../pages/ProjectPage"));
 const DivisionPage = async (() => import("../pages/DivisionPage"));
 const FormPage = async (() => import("../pages/FormPage"));
-const Calendar = async(() => import("../pages/pages/Calendar"));
+const FormTemplatesPage = async(() => import("../pages/FormTemplatePage"));
+const FormTypePage = async(() => import("../pages/FormTypePage"));
+const UserPage = async(() => import("../pages/UserPage"));
+const RolePage = async(() => import("../pages/RolePage"));
 
-// Tables components
-const SimpleTable = async(() => import("../pages/tables/SimpleTable"));
-const AdvancedTable = async(() => import("../pages/tables/AdvancedTable"));
-
-// Chart components
-const Chartjs = async(() => import("../pages/charts/Chartjs"));
-
-// Maps components
-const GoogleMaps = async(() => import("../pages/maps/GoogleMaps"));
-const VectorMaps = async(() => import("../pages/maps/VectorMaps"));
-
-// Documentation
-const Welcome = async(() => import("../pages/docs/Welcome"));
-const GettingStarted = async(() => import("../pages/docs/GettingStarted"));
-const EnvironmentVariables = async(() => import("../pages/docs/EnvironmentVariables"));
-const Deployment = async(() => import("../pages/docs/Deployment"));
-const Theming = async(() => import("../pages/docs/Theming"));
-const StateManagement = async(() => import("../pages/docs/StateManagement"));
-const Support = async(() => import("../pages/docs/Support"));
-const Changelog = async(() => import("../pages/docs/Changelog"));
-// const Presentation = async(() => import("../pages/docs/Presentation"));
-
-const pagesRoutes = {
-  id: "Pages",
-  path: "/pages",
-  icon: <Layout />,
-  children: [
-    {
-      path: "/pages/settings",
-      name: "Settings",
-      component: Settings
-    },
-    {
-      path: "/pages/pricing",
-      name: "Pricing",
-      component: Pricing
-    },
-    {
-      path: "/pages/blank",
-      name: "Blank Page",
-      component: Blank
-    }
-  ],
-  component: null
-};
-
-const profileRoutes = {
-  id: "Profile",
-  path: "/profile",
-  icon: <User />,
-  component: Profile,
-  children: null
-};
-
+//Project
 const projectsRoutes = {
   id: "Projects",
   path: "/web/admin/projects",
@@ -137,7 +32,28 @@ const projectsRoutes = {
   isShown: true
 };
 
-const divisonRoutes = {
+const projectAddRoutes = {
+  id: "ProjectsAdd",
+  path: "/web/admin/projects/add",
+  icon: <Briefcase />,
+  badge: "8",
+  component: ProjectPage,
+  children: null,
+  isShown: false
+};
+
+const projectEditRoutes = {
+  id: "ProjectsEdit",
+  path: "/web/admin/projects/edit/:projectId",
+  icon: <Briefcase />,
+  badge: "8",
+  component: ProjectPage,
+  children: null,
+  isShown: false
+};
+
+//Division
+const divisionsRoutes = {
   id: "Divisions",
   path: "/web/admin/projects/:projectId/divisions",
   icon: <Briefcase />,
@@ -146,395 +62,239 @@ const divisonRoutes = {
   isShown: false
 }
 
+const divisionAddRoutes = {
+  id: "ProjectsAdd",
+  path: "/web/admin/projects/:projectId/divisions/add",
+  icon: <Briefcase />,
+  badge: "8",
+  component: DivisionPage,
+  children: null,
+  isShown: false
+};
+
+const divisionEditRoutes = {
+  id: "DivisionEdit",
+  path: "/web/admin/projects/:projectId/divisions/edit/:divisionId",
+  icon: <Briefcase />,
+  badge: "8",
+  component: DivisionPage,
+  children: null,
+  isShown: false
+};
+
+//Form
 const formRoutes = {
   id: "Form",
-  path: "/web/admin/divisions/:divisionsId/forms",
+  path: "/web/admin/projects/:projectId/divisions/:divisionsId/forms",
   icon: <Briefcase />,
   component: FormPage,
   children: null,
   isShown: false
 }
 
-const invoiceRoutes = {
-  id: "Invoices",
-  path: "/invoices",
-  icon: <CreditCard />,
-  children: [
-    {
-      path: "/invoices",
-      name: "List",
-      component: InvoiceList
-    },
-    {
-      path: "/invoices/detail",
-      name: "Details",
-      component: InvoiceDetails
-    }
-  ],
-  component: null,
-  isShown: false
-};
+//FormTemplates
+const formTemplateRoutes = {
+  id: "Form Templates",
+  path: "/web/admin/form-templates",
+  icon: <Briefcase />,
+  component: FormTemplatesPage,
+  children: null,
+  isShown: true
+}
 
-const orderRoutes = {
-  id: "Orders",
-  path: "/orders",
-  icon: <ShoppingCart />,
-  component: Orders,
+const formTemplateAddRoutes = {
+  id: "Form Templates",
+  path: "/web/admin/form-templates/add",
+  icon: <Briefcase />,
+  component: FormTemplatesPage,
   children: null,
   isShown: false
-};
+}
 
-const tasksRoutes = {
-  id: "Tasks",
-  path: "/tasks",
-  icon: <CheckSquare />,
-  badge: "17",
-  component: Tasks,
+const formTemplateEditRoutes = {
+  id: "Form Templates",
+  path: "/web/admin/form-templates/edit/:formTemplatesId",
+  icon: <Briefcase />,
+  component: FormTemplatesPage,
   children: null,
   isShown: false
-};
+}
 
-const calendarRoutes = {
-  id: "Calendar",
-  path: "/calendar",
-  icon: <CalendarIcon />,
-  component: Calendar,
-  children: null
-};
-
-const authRoutes = {
-  id: "Auth",
-  path: "/auth",
-  icon: <Users />,
-  children: [
-    {
-      path: "/auth/sign-in",
-      name: "Sign In",
-      component: SignIn
-    },
-    {
-      path: "/auth/sign-up",
-      name: "Sign Up",
-      component: SignUp
-    },
-    {
-      path: "/auth/reset-password",
-      name: "Reset Password",
-      component: ResetPassword
-    },
-    {
-      path: "/auth/404",
-      name: "404 Page",
-      component: Page404
-    },
-    {
-      path: "/auth/500",
-      name: "500 Page",
-      component: Page500
-    }
-  ],
-  component: null,
+//Form Types
+const formTypeRoutes = {
+  id: "Form Types",
+  path: "/web/admin/form-type",
+  icon: <Briefcase />,
+  component: FormTypePage,
+  children: null,
   isShown: true
-};
+}
 
-const componentsRoutes = {
-  id: "Components",
-  path: "/components",
-  header: "Elements",
-  icon: <Grid />,
-  children: [
-    {
-      path: "/components/alerts",
-      name: "Alerts",
-      component: Alerts
-    },
-    {
-      path: "/components/avatars",
-      name: "Avatars",
-      component: Avatars
-    },
-    {
-      path: "/components/badges",
-      name: "Badges",
-      component: Badges
-    },
-    {
-      path: "/components/buttons",
-      name: "Buttons",
-      component: Buttons
-    },
-    {
-      path: "/components/cards",
-      name: "Cards",
-      component: Cards
-    },
-    {
-      path: "/components/chips",
-      name: "Chips",
-      component: Chips
-    },
-    {
-      path: "/components/dialogs",
-      name: "Dialogs",
-      component: Dialogs
-    },
-    {
-      path: "/components/expansion-panels",
-      name: "Expansion Panels",
-      component: ExpPanels
-    },
-    {
-      path: "/components/lists",
-      name: "Lists",
-      component: Lists
-    },
-    {
-      path: "/components/menus",
-      name: "Menus",
-      component: Menus
-    },
-    {
-      path: "/components/pagination",
-      name: "Pagination",
-      component: Pagination
-    },
-    {
-      path: "/components/progress",
-      name: "Progress",
-      component: Progress
-    },
-    {
-      path: "/components/snackbars",
-      name: "Snackbars",
-      component: Snackbars
-    },
-    {
-      path: "/components/tooltips",
-      name: "Tooltips",
-      component: Tooltips
-    }
-  ],
-  component: null
-};
+const formTypeAddRoutes = {
+  id: "FormTypes",
+  path: "/web/admin/form-type/add",
+  icon: <Briefcase />,
+  component: FormTypePage,
+  children: null,
+  isShown: false
+}
 
-const formsRoutes_bk = {
-  id: "Forms",
-  path: "/forms",
-  icon: <CheckSquare />,
-  children: [
-    {
-      path: "/forms/pickers",
-      name: "Pickers",
-      component: Pickers
-    },
-    {
-      path: "/forms/selection-controls",
-      name: "Selection Controls",
-      component: SelectionCtrls
-    },
-    {
-      path: "/forms/selects",
-      name: "Selects",
-      component: Selects
-    },
-    {
-      path: "/forms/text-fields",
-      name: "Text Fields",
-      component: TextFields
-    },
-    {
-      path: "/forms/dropzone",
-      name: "Dropzone",
-      component: Dropzone
-    },
-    {
-      path: "/forms/editors",
-      name: "Editors",
-      component: Editors
-    }
-  ],
-  component: null
-};
+const formTypeEditRoutes = {
+  id: "FormTypes",
+  path: "/web/admin/form-type/:formTypesId",
+  icon: <Briefcase />,
+  component: FormTypePage,
+  children: null,
+  isShown: false
+}
 
-const tablesRoutes = {
-  id: "Tables",
-  path: "/tables",
-  icon: <List />,
-  children: [
-    {
-      path: "/tables/simple-table",
-      name: "Simple Table",
-      component: SimpleTable
-    },
-    {
-      path: "/tables/advanced-table",
-      name: "Advanced Table",
-      component: AdvancedTable
-    }
-  ],
-  component: null,
+//Role
+const roleRoutes = {
+  id: "Roles",
+  path: "/web/admin/role",
+  icon: <User />,
+  component: RolePage,
+  children: null,
   isShown: true
-};
+}
 
-const iconsRoutes = {
-  id: "Icons",
-  path: "/icons",
-  icon: <Heart />,
-  children: [
-    {
-      path: "/icons/material-icons",
-      name: "Material Icons",
-      component: MaterialIcons
-    },
-    {
-      path: "/icons/feather-icons",
-      name: "Feather Icons",
-      component: FeatherIcons
-    }
-  ],
-  component: null
-};
+const roleAddRoutes = {
+  id: "Role",
+  path: "/web/admin/role/add",
+  icon: <User />,
+  component: RolePage,
+  children: null,
+  isShown: false
+}
 
-const chartRoutes = {
-  id: "Charts",
-  path: "/charts",
-  icon: <PieChart />,
-  component: Chartjs,
-  children: null
-};
+const roleEditRoutes = {
+  id: "Role",
+  path: "/web/admin/role/edit/:roleId",
+  icon: <User />,
+  component: RolePage,
+  children: null,
+  isShown: false
+}
 
-const mapsRoutes = {
-  id: "Maps",
-  path: "/maps",
-  icon: <Map />,
-  children: [
-    {
-      path: "/maps/google-maps",
-      name: "Google Maps",
-      component: GoogleMaps
-    },
-    {
-      path: "/maps/vector-maps",
-      name: "Vector Maps",
-      component: VectorMaps
-    }
-  ],
-  component: null
-};
+//Role
+const userRoutes = {
+  id: "Users",
+  path: "/web/admin/user",
+  icon: <User />,
+  component: UserPage,
+  children: null,
+  isShown: true
+}
 
-// const presentationRoutes = {
-//   id: "Presentation",
-//   path: "/",
-//   header: "Docs",
-//   icon: <Monitor />,
-//   component: Presentation,
-//   children: null
+const SignInRoutes = {
+  id: "SignIn",
+  path: "/web/admin/signin",
+  icon: <User />,
+  component: SignIn,
+  children: null,
+  isShown: false
+}
+
+const ResetPasswordRoutes = {
+  id: "ResetPassword",
+  path: "/web/admin/reset-password",
+  icon: <User />,
+  component: ResetPassword,
+  children: null,
+  isShown: false
+}
+
+const Page404Routes = {
+  id: "Page404",
+  path: "/web/admin/404",
+  icon: <User />,
+  component: Page404,
+  children: null,
+  isShown: false
+}
+
+const Page500Routes = {
+  id: "Page500",
+  path: "/web/admin/500",
+  icon: <User />,
+  component: Page500,
+  children: null,
+  isShown: false
+}
+
+// const authRoutes = {
+//   id: "Auth",
+//   path: "/auth",
+//   icon: <Users />,
+//   children: [
+//     {
+//       path: "/auth/sign-in",
+//       name: "Sign In",
+//       component: SignIn
+//     },
+//     {
+//       path: "/auth/sign-up",
+//       name: "Sign Up",
+//       component: SignUp
+//     },
+//     {
+//       path: "/auth/reset-password",
+//       name: "Reset Password",
+//       component: ResetPassword
+//     },
+//     {
+//       path: "/auth/404",
+//       name: "404 Page",
+//       component: Page404
+//     },
+//     {
+//       path: "/auth/500",
+//       name: "500 Page",
+//       component: Page500
+//     }
+//   ],
+//   component: null,
+//   isShown: false
 // };
-
-const documentationRoutes = {
-  id: "Documentation",
-  path: "/documentation",
-  icon: <BookOpen />,
-  children: [
-    {
-      path: "/documentation/welcome",
-      name: "Welcome",
-      component: Welcome
-    },
-    {
-      path: "/documentation/getting-started",
-      name: "Getting Started",
-      component: GettingStarted
-    },
-    {
-      path: "/documentation/environment-variables",
-      name: "Environment Variables",
-      component: EnvironmentVariables
-    },
-    {
-      path: "/documentation/deployment",
-      name: "Deployment",
-      component: Deployment
-    },
-    {
-      path: "/documentation/theming",
-      name: "Theming",
-      component: Theming
-    },
-    {
-      path: "/documentation/state-management",
-      name: "State Management",
-      component: StateManagement
-    },
-    {
-      path: "/documentation/support",
-      name: "Support",
-      component: Support
-    },
-  ],
-  component: null
-};
-
-const changelogRoutes = {
-  id: "Changelog",
-  path: "/changelog",
-  badge: "v1.2.0",
-  icon: <List />,
-  component: Changelog,
-  children: null
-};
-
-// This route is not visisble in the sidebar
-const privateRoutes = {
-  id: "Private",
-  path: "/private",
-  component: Blank,
-  children: null,
-};
 
 // Routes using the Dashboard layout
 export const dashboardLayoutRoutes = [
   projectsRoutes,
-  divisonRoutes,
+  projectAddRoutes,
+  projectEditRoutes,
+  divisionsRoutes,
+  divisionAddRoutes,
+  divisionEditRoutes,
   formRoutes,
-  pagesRoutes,
-  profileRoutes,
-  orderRoutes,
-  invoiceRoutes,
-  tasksRoutes,
-  calendarRoutes,
-  componentsRoutes,
-  chartRoutes,
-  tablesRoutes,
-  iconsRoutes,
-  mapsRoutes,
-  documentationRoutes,
-  changelogRoutes,
-  // presentationRoutes,
-  privateRoutes
+  formTemplateRoutes,
+  formTemplateAddRoutes,
+  formTemplateEditRoutes,
+  formTypeRoutes,
+  // formTypesAddRoutes,
+  // formTypesEditRoutes,
+  roleRoutes,
+  roleAddRoutes,
+  roleEditRoutes,
+  userRoutes,
+  SignInRoutes,
+  Page404Routes,
+  Page500Routes,
+  ResetPasswordRoutes
 ];
 
 // Routes using the Auth layout
-export const authLayoutRoutes = [authRoutes];
+// export const authLayoutRoutes = [authRoutes];
 
 // Routes visible in the sidebar
 export const sidebarRoutes = [
   projectsRoutes,
-  divisonRoutes,
+  divisionsRoutes,
+  formTemplateRoutes,
   formRoutes,
-  pagesRoutes,
-  profileRoutes,
-  orderRoutes,
-  invoiceRoutes,
-  tasksRoutes,
-  calendarRoutes,
-  authRoutes,
-  componentsRoutes,
-  chartRoutes,
-  tablesRoutes,
-  iconsRoutes,
-  mapsRoutes,
-  // presentationRoutes,
-  documentationRoutes,
-  changelogRoutes
+  formTypeRoutes,
+  userRoutes,
+  roleRoutes,
+  SignInRoutes,
+  Page404Routes,
+  Page500Routes
 ];

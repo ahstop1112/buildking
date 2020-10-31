@@ -1,9 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import { rgba } from "polished";
-
-import { NavLink as RouterNavLink } from "react-router-dom";
-import { darken } from "polished";
+import { rgba , darken } from "polished";
 
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "../vendor/perfect-scrollbar.css";
@@ -15,9 +11,7 @@ import {
   Badge,
   Box as MuiBox,
   Chip,
-  Collapse,
   Drawer as MuiDrawer,
-  Grid,
   List as MuiList,
   ListItem,
   ListItemText,

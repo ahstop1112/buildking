@@ -328,3 +328,48 @@ export const verifyEmail = email => {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
+
+export const changeToSQL = optionStr => {
+  let string = {
+    "options": {
+      "location": [
+        "Portion A",
+        "Portion A1",
+        "Portion B",
+        "Portion B1",
+        "Portion B2",
+        "Portion C",
+        "Portion C1",
+        "Portion C2",
+        "Portion D",
+        "Portion D1",
+        "Portion D2",
+        "Portion E",
+        "Portion J15",
+        "Portion J18"
+      ],
+      "works": [
+        "Drainage",
+        "Formwork",
+        "Founding Condition",
+        "Ground Investigation",
+        "Pre-drilling",
+        "PBSH",
+        "Reinforcement",
+        "Steelworks",
+        "Setting Out",
+        "Underground Records",
+        "As-built Survey",
+        "Other"
+      ]
+    }
+  };
+  let mapObj = {'"': '\"'};
+  let changeQutoes = JSON.stringify(string).replace(/["]/gi, function(matched){
+    return mapObj[matched];
+  });
+
+  console.log(changeQutoes);
+
+  return changeQutoes;
+}

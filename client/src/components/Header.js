@@ -114,7 +114,7 @@ function LanguageMenu() {
         onClick={toggleMenu}
         color="inherit"
       >
-        <Flag src="static/img/flags/us.png" alt="English" />
+        <Flag src="/web/admin/static/img/flags/us.png" alt="English" />
       </IconButton>
       <Menu
         id="menu-appbar"
