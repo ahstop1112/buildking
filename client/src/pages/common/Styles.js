@@ -11,7 +11,9 @@ import {
   Divider as MuiDivider,
   Typography as MuiTypography,
   Paper as MuiPaper,
-  Button as MuiButton
+  Button as MuiButton,
+  Tabs as MuiTabs,
+  Tab as MuiTab,
 } from "@material-ui/core";
 import { AvatarGroup as MuiAvatarGroup } from '@material-ui/lab';
 export const Button = styled(MuiButton)(spacing);
@@ -60,5 +62,40 @@ export const AddButtonContainer = styled(Grid)`
 `;
 
 export const Title = styled.h2`
-  margin: 0;
+  /* margin: 0; */
 `;
+
+export const Tab  = styled(Paper)`
+  margin-top: 2em;
+  box-shadow: none;
+  background: none;
+  
+  .MuiTabs-indicator: {
+    background-color: #25616C;
+  }
+`;
+
+export const Tabs = styled(MuiTabs)`
+  box-shadow: none;
+  /* border: 1px solid red; */
+  background-color: #fff;
+  margin-left: 15px;
+  margin-right: 15px;
+  
+  .MuiTabs-indicator: {
+    background-color: #25616C;
+  }
+`;
+
+export const TabButton = styled(MuiTab)`
+  color: #25616C;
+  text-align: 'left';
+`;
+
+export const TabPanel = styled.div`
+  background-color: #f7f7f7;
+
+  .MuiBox-root: {
+    padding: '1em 2em';
+  }
+`

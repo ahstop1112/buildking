@@ -1,14 +1,16 @@
 import React, { useReducer } from 'react';
-import UserContext from '../store/context/User';
+import { useLocation } from 'react-router-dom';
 import ProjectContext from '../store/context/Project';
-import ProjectReducer from '../store/reducers/Projects';
+import ProjectReducer from '../store/reducers/Project';
 import PageContainer from './common/PageContainer';
 import PageAddEditContainer from './common/PageAddEditContainer';
 
-const ProjectPage = props => {
+const ProjectPage = () => {
+  let pageAction = useLocation().pathname;
+  let updateItemId = pageAction.split('/')[5] ? pageAction.split('/')[5] : null;
 
   const initialProjectState = {
-    pageName:   'Projects',
+    pageName:   'Project',
     pageId:     'project',
     checkColumn:     'id',
     data:       [],
@@ -22,31 +24,21 @@ const ProjectPage = props => {
 
   return (
       <ProjectContext.Provider value={{state, dispatch}}>
-        <PageContainer 
-          context={ProjectContext}
-        />
+        {pageAction.includes('add') || pageAction.includes('edit') ? 
+          (
+            <PageAddEditContainer
+                pageAction={pageAction}
+                updateItemId={updateItemId}
+                context={ProjectContext}
+            />
+          ) : (
+            <PageContainer 
+              context={ProjectContext}
+            />
+          )
+        }
       </ProjectContext.Provider>
   );
 };
 
 export default ProjectPage;
-
-// {pageAction.includes('add') || pageAction.includes('edit') ? 
-        //     (
-        //       <PageAddEditContainer
-        //           pageType="FormType"
-        //           pageAction={pageAction}
-        //           itemId={itemId}
-        //           context={FormTypeContext}
-        //       />
-        //     ) : (
-        //       <PageContainer 
-        //         pageType="FormType"
-        //         itemId={itemId}
-        //         context={FormTypeContext}
-        //       />
-        //     )
-        // }
-
-
-

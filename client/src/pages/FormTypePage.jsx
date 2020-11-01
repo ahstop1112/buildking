@@ -1,15 +1,17 @@
 
 import React, { useReducer } from 'react';
-import UserContext from '../store/context/User';
+import { useLocation } from 'react-router-dom';
 import FormTypeContext from '../store/context/FormType';
 import FormTypeReducer from '../store/reducers/FormType';
 import PageContainer from './common/PageContainer';
 import PageAddEditContainer from './common/PageAddEditContainer';
 
 const FormTypePage = props => {
+  let pageAction = useLocation().pathname;
+  let updateItemId = pageAction.split('/')[5] ? pageAction.split('/')[5] : null;
 
   const initialFormTypeState = {
-    pageName:   'Form Types',
+    pageName:   'Form Type',
     pageId:     'form-type',
     checkColumn:     'id',
     data:       [],
@@ -22,29 +24,21 @@ const FormTypePage = props => {
 
   return (
       <FormTypeContext.Provider value={{state, dispatch}}>
-        <PageContainer 
-          context={FormTypeContext}
-        />
+        {pageAction.includes('add') || pageAction.includes('edit') ? 
+            (
+              <PageAddEditContainer
+                  pageAction={pageAction}
+                  updateItemId={updateItemId}
+                  context={FormTypeContext}
+              />
+            ) : (
+              <PageContainer 
+                context={FormTypeContext}
+              />
+            )
+        }
       </FormTypeContext.Provider>
   );
 };
 
 export default FormTypePage;
-
-// {pageAction.includes('add') || pageAction.includes('edit') ? 
-        //     (
-        //       <PageAddEditContainer
-        //           pageType="FormType"
-        //           pageAction={pageAction}
-        //           itemId={itemId}
-        //           context={FormTypeContext}
-        //       />
-        //     ) : (
-        //       <PageContainer 
-        //         pageType="FormType"
-        //         itemId={itemId}
-        //         context={FormTypeContext}
-        //       />
-        //     )
-        // }
-

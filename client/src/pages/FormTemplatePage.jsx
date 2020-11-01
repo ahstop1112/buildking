@@ -1,14 +1,16 @@
 import React, { useReducer } from 'react';
-import UserContext from '../store/context/User';
+import { useLocation } from 'react-router-dom';
 import FormTemplateContext from '../store/context/FormTemplate';
 import FormTemplateReducer from '../store/reducers/FormTemplate';
 import PageContainer from './common/PageContainer';
 import PageAddEditContainer from './common/PageAddEditContainer';
 
-const FormTemplatePage = props => {
+const FormTemplatePage = () => {
+  let pageAction = useLocation().pathname;
+  let updateItemId = pageAction.split('/')[5] ? pageAction.split('/')[5] : null;
 
   const initialFormTemplateState = {
-    pageName:   'Form Templates',
+    pageName:   'Form Template',
     pageId:     'form-template',
     data:       [],
     updateItem: [],
@@ -20,9 +22,19 @@ const FormTemplatePage = props => {
 
   return (
       <FormTemplateContext.Provider value={{state, dispatch}}>
-        <PageContainer 
-          context={FormTemplateContext}
-        />
+        {pageAction.includes('add') || pageAction.includes('edit') ? 
+          (
+            <PageAddEditContainer
+                pageAction={pageAction}
+                updateItemId={updateItemId}
+                context={FormTemplateContext}
+            />
+          ) : (
+            <PageContainer 
+              context={FormTemplateContext}
+            />
+          )
+        }
       </FormTemplateContext.Provider>
   );
 };

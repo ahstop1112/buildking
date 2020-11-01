@@ -2,88 +2,34 @@ const DivisionsReducer = (state, action) => {
     let userInfo = [];
 
     switch (action.type){
-        case 'INITIAL_DIVISIONS':
+        case 'INITIAL_ALL_DATA':
+            return{
+                ...state,
+                data: action.all_data,
+            }
+        case 'INITIAL_UPDATE_ITEM':
 
-            // console.log(action.project_data);
+            // console.log(action.update_item);
             
             return{
                 ...state,
-                divisions: action.divisions_data,
+                updateItem: action.update_item,
+                updateItemName: action.item_name
             }
-        case 'INITIAL_UPDATE_DIVISION':
-
-                // console.log(action.update_project[0]['description']);
-                
-                return{
-                    ...state,
-                    updateDivision: {
-                        id:  action.division_data[0]['id'],
-                        name: action.division_data[0]['name'],
-                        description: action.division_data[0]['description'],
-                        title: action.division_data[0]['title']
-                    }
-                }
-        case 'CHANGE_NEW_TEXTFIELD':
-                return{
-                    ...state,
-                    updateDivision: {
-                        ...state.updateProject,
-                        [action.fieldName]: action.fieldValue,
-                    }
-                };
         case 'CHANGE_UPDATE_TEXTFIELD':
-                return{
-                    ...state,
-                    updateDivision: {
-                        ...state.updateDivision,
-                        [action.fieldName]: action.fieldValue,
-                    }
-                };
+            return{
+                ...state,
+                updateItem: {
+                    ...state.updateItem,
+                    [action.fieldName]: action.fieldValue,
+                }
+            };
         case 'INITIAL_PROJECT_NAME':
-                console.log(action.projectName);
-                return{
-                    ...state,
-                    projectName: action.projectName
-                };
-        case 'SUCCESS_LOGIN': 
-            
-            if (process.env.REACT_APP_CUSTOM_NODE_ENV === 'development' ||
-                process.env.REACT_APP_CUSTOM_NODE_ENV === 'staging') {
-                window.sessionStorage.setItem('user', JSON.stringify(state));
-            }
-            // console.log(window.sessionStorage);
+                // console.log(action.projectName);
             return{
                 ...state,
-                error: null,
-                isLoggingIn: true,
-                hasRole: true
-            }
-        case 'LOGOUT': 
-            if (process.env.REACT_APP_CUSTOM_NODE_ENV === 'development' ||
-                process.env.REACT_APP_CUSTOM_NODE_ENV === 'staging') {
-                window.sessionStorage.clear();
-                window.location.href = '/login';
-            }
-        
-            window.location.href = '/';
-        break;
-        case 'INITIAL_USER_INFO': 
-            userInfo = action.userInfo;
-            console.log(userInfo[0]);
-
-            window.location.href = '/projects';
-            //company: "Buildking"
-            // email: "steve.hui@buildking.hk"
-            // first_name: "Steve Hui"
-            // id: 7
-            // last_name: ""
-            // user_title: "Site Agent"
-            // username: "Steve Hui"
-            return{
-                ...state,
-                userInfo: userInfo
-            }
-        break;
+                projectName: action.projectName
+            };
         default: 
             console.log("error");
             

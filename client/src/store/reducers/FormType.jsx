@@ -8,22 +8,18 @@ const FormTypeReducer = (state, action) => {
             }
         case 'INITIAL_UPDATE_ITEM':
 
-            console.log(typeof(action.update_role[0]['extra']));
+            console.log(action.update_item);
             
             return{
                 ...state,
-                updateItem: {
-                    id:  action.update_role[0]['id'],
-                    name: action.update_role[0]['name'],
-                    description: action.update_role[0]['description'],
-                    extra: action.update_role[0]['extra']
-                }
+                updateItem: action.update_item,
+                updateItemName: action.item_name
             }
-        case 'CHANGE_TEXTFIELD':
+        case 'CHANGE_UPDATE_TEXTFIELD':
             return{
                 ...state,
-                updateRole: {
-                    ...state.updateRole,
+                updateItem: {
+                    ...state.updateItem,
                     [action.fieldName]: action.fieldValue,
                 }
             };

@@ -125,15 +125,6 @@ function LanguageMenu() {
         <MenuItem onClick={closeMenu}>
           English
         </MenuItem>
-        <MenuItem onClick={closeMenu}>
-          French
-        </MenuItem>
-        <MenuItem onClick={closeMenu}>
-          German
-        </MenuItem>
-        <MenuItem onClick={closeMenu}>
-          Dutch
-        </MenuItem>
       </Menu>
     </React.Fragment>
   )
@@ -198,22 +189,11 @@ const Header = ({ onDrawerToggle }) => (
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
-              <Input placeholder="Search topics" />
+              <Input placeholder="Search..." />
             </Search>
           </Grid>
           <Grid item xs />
           <Grid item>
-            <IconButton color="inherit">
-              <Indicator badgeContent={3}>
-                <MessageSquare />
-              </Indicator>
-            </IconButton>
-            <IconButton color="inherit">
-              <Indicator badgeContent={7}>
-                <Bell />
-              </Indicator>
-            </IconButton>
-            <LanguageMenu />
             <UserMenu />
           </Grid>
         </Grid>

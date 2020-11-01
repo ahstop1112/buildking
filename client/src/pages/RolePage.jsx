@@ -1,13 +1,12 @@
 
 import React, { useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
-import UserContext from '../store/context/User';
 import RoleContext from '../store/context/Role';
 import RoleReducer from '../store/reducers/Role';
 import PageContainer from './common/PageContainer';
 import PageAddEditContainer from './common/PageAddEditContainer';
 
-const RolePage = props => {
+const RolePage = () => {
   let pageAction = useLocation().pathname;
   let updateItemId = pageAction.split('/')[5] ? pageAction.split('/')[5] : null;
 

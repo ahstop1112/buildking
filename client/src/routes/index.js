@@ -16,15 +16,15 @@ const Page500 = async(() => import("../pages/Page500"));
 const ProjectPage = async(() => import("../pages/ProjectPage"));
 const DivisionPage = async (() => import("../pages/DivisionPage"));
 const FormPage = async (() => import("../pages/FormPage"));
-const FormTemplatesPage = async(() => import("../pages/FormTemplatePage"));
+const FormTemplatePage = async(() => import("../pages/FormTemplatePage"));
 const FormTypePage = async(() => import("../pages/FormTypePage"));
 const UserPage = async(() => import("../pages/UserPage"));
 const RolePage = async(() => import("../pages/RolePage"));
 
 //Project
-const projectsRoutes = {
-  id: "Projects",
-  path: "/web/admin/projects",
+const projectRoutes = {
+  id: "Project",
+  path: "/web/admin/project",
   icon: <Briefcase />,
   badge: "8",
   component: ProjectPage,
@@ -34,7 +34,7 @@ const projectsRoutes = {
 
 const projectAddRoutes = {
   id: "ProjectsAdd",
-  path: "/web/admin/projects/add",
+  path: "/web/admin/project/add",
   icon: <Briefcase />,
   badge: "8",
   component: ProjectPage,
@@ -44,7 +44,7 @@ const projectAddRoutes = {
 
 const projectEditRoutes = {
   id: "ProjectsEdit",
-  path: "/web/admin/projects/edit/:projectId",
+  path: "/web/admin/project/edit/:projectId",
   icon: <Briefcase />,
   badge: "8",
   component: ProjectPage,
@@ -53,9 +53,9 @@ const projectEditRoutes = {
 };
 
 //Division
-const divisionsRoutes = {
+const divisionRoutes = {
   id: "Divisions",
-  path: "/web/admin/projects/:projectId/divisions",
+  path: "/web/admin/project/:projectId/division",
   icon: <Briefcase />,
   component: DivisionPage,
   children: null,
@@ -64,7 +64,7 @@ const divisionsRoutes = {
 
 const divisionAddRoutes = {
   id: "ProjectsAdd",
-  path: "/web/admin/projects/:projectId/divisions/add",
+  path: "/web/admin/project/:projectId/division/add",
   icon: <Briefcase />,
   badge: "8",
   component: DivisionPage,
@@ -74,7 +74,7 @@ const divisionAddRoutes = {
 
 const divisionEditRoutes = {
   id: "DivisionEdit",
-  path: "/web/admin/projects/:projectId/divisions/edit/:divisionId",
+  path: "/web/admin/project/:projectId/division/edit/:divisionId",
   icon: <Briefcase />,
   badge: "8",
   component: DivisionPage,
@@ -85,7 +85,7 @@ const divisionEditRoutes = {
 //Form
 const formRoutes = {
   id: "Form",
-  path: "/web/admin/projects/:projectId/divisions/:divisionsId/forms",
+  path: "/web/admin/project/:projectId/division/:divisionId/form",
   icon: <Briefcase />,
   component: FormPage,
   children: null,
@@ -94,35 +94,35 @@ const formRoutes = {
 
 //FormTemplates
 const formTemplateRoutes = {
-  id: "Form Templates",
-  path: "/web/admin/form-templates",
+  id: "Form Template",
+  path: "/web/admin/form-template",
   icon: <Briefcase />,
-  component: FormTemplatesPage,
+  component: FormTemplatePage,
   children: null,
   isShown: true
 }
 
 const formTemplateAddRoutes = {
   id: "Form Templates",
-  path: "/web/admin/form-templates/add",
+  path: "/web/admin/form-template/add",
   icon: <Briefcase />,
-  component: FormTemplatesPage,
+  component: FormTemplatePage,
   children: null,
   isShown: false
 }
 
 const formTemplateEditRoutes = {
   id: "Form Templates",
-  path: "/web/admin/form-templates/edit/:formTemplatesId",
+  path: "/web/admin/form-template/edit/:formTemplateId",
   icon: <Briefcase />,
-  component: FormTemplatesPage,
+  component: FormTemplatePage,
   children: null,
   isShown: false
 }
 
 //Form Types
 const formTypeRoutes = {
-  id: "Form Types",
+  id: "Form Type",
   path: "/web/admin/form-type",
   icon: <Briefcase />,
   component: FormTypePage,
@@ -141,7 +141,7 @@ const formTypeAddRoutes = {
 
 const formTypeEditRoutes = {
   id: "FormTypes",
-  path: "/web/admin/form-type/:formTypesId",
+  path: "/web/admin/form-type/edit/:formTypeId",
   icon: <Briefcase />,
   component: FormTypePage,
   children: null,
@@ -176,7 +176,7 @@ const roleEditRoutes = {
   isShown: false
 }
 
-//Role
+//User
 const userRoutes = {
   id: "Users",
   path: "/web/admin/user",
@@ -184,6 +184,24 @@ const userRoutes = {
   component: UserPage,
   children: null,
   isShown: true
+}
+
+const userAddRoutes = {
+  id: "Role",
+  path: "/web/admin/user/add",
+  icon: <User />,
+  component: UserPage,
+  children: null,
+  isShown: false
+}
+
+const userEditRoutes = {
+  id: "Role",
+  path: "/web/admin/user/edit/:userId",
+  icon: <User />,
+  component: UserPage,
+  children: null,
+  isShown: false
 }
 
 const SignInRoutes = {
@@ -259,10 +277,10 @@ const Page500Routes = {
 
 // Routes using the Dashboard layout
 export const dashboardLayoutRoutes = [
-  projectsRoutes,
+  projectRoutes,
   projectAddRoutes,
   projectEditRoutes,
-  divisionsRoutes,
+  divisionRoutes,
   divisionAddRoutes,
   divisionEditRoutes,
   formRoutes,
@@ -270,12 +288,14 @@ export const dashboardLayoutRoutes = [
   formTemplateAddRoutes,
   formTemplateEditRoutes,
   formTypeRoutes,
-  // formTypesAddRoutes,
-  // formTypesEditRoutes,
+  formTypeAddRoutes,
+  formTypeEditRoutes,
   roleRoutes,
   roleAddRoutes,
   roleEditRoutes,
   userRoutes,
+  userAddRoutes,
+  userEditRoutes,
   SignInRoutes,
   Page404Routes,
   Page500Routes,
@@ -287,8 +307,8 @@ export const dashboardLayoutRoutes = [
 
 // Routes visible in the sidebar
 export const sidebarRoutes = [
-  projectsRoutes,
-  divisionsRoutes,
+  projectRoutes,
+  divisionRoutes,
   formTemplateRoutes,
   formRoutes,
   formTypeRoutes,

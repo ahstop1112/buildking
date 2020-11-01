@@ -1,4 +1,5 @@
-const FormReducer = (state, action) => {
+const ProjectReducer = (state, action) => {
+    let userInfo = [];
 
     switch (action.type){
         case 'INITIAL_ALL_DATA':
@@ -8,7 +9,7 @@ const FormReducer = (state, action) => {
             }
         case 'INITIAL_UPDATE_ITEM':
 
-            // console.log(action.update_item);
+            console.log(action.update_item);
             
             return{
                 ...state,
@@ -23,18 +24,6 @@ const FormReducer = (state, action) => {
                     [action.fieldName]: action.fieldValue,
                 }
             };
-        case 'INITIAL_PROJECT_NAME':
-                // console.log(action.projectName);
-            return{
-                ...state,
-                projectName: action.projectName
-            };
-        case 'INITIAL_DIVISION_NAME':
-                // console.log(action.projectName);
-            return{
-                ...state,
-                divisionName: action.divisionName
-            };
         default: 
             console.log("error");
             
@@ -44,4 +33,4 @@ const FormReducer = (state, action) => {
     }
 }
 
-export default FormReducer;
+export default ProjectReducer;
