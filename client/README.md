@@ -1,4 +1,4 @@
-# Cerebro Inspection CMS Pro - React Admin & Dashboard Template
+# Cerebro Inspection CMS Pro
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
